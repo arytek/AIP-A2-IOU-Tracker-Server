@@ -1,0 +1,25 @@
+{
+  "name": "aip-a2-iou-tracker-server",
+  "version": "1.0.0",
+  "description": "Advanced Internet Programming - UTS. Assessment 2 repository for IOU tracker project back-end (Node.JS). ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AryanNateq/AIP-A2-IOU-Tracker-Server.git"
+  },
+  "keywords": [
+    "AIP",
+    "React",
+    "IOU",
+    "Server"
+  ],
+  "author": "Group 26",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AryanNateq/AIP-A2-IOU-Tracker-Server/issues"
+  },
+  "homepage": "https://github.com/AryanNateq/AIP-A2-IOU-Tracker-Server#readme"
+}
