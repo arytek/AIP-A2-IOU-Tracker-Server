@@ -1,7 +1,9 @@
-const express = require("express");
-const signup = require("./HTTPReqHandlers/POST-Handlers/signup");
+const express = require('express');
+const signup = require('./HTTPReqHandlers/POST-Handlers/signup');
+const connectDB = require('./Utility/DB/Connection');
 
 const app = express();
+connectDB();
 
 /**
  * Handles 'Signup' POST requests.
@@ -21,7 +23,13 @@ function handleSignup(req, res) {
     });
 }
 
-app.post("/signup", handleSignup);
+function handleTestGet(req, res) {
+  console.log('Testing123...');
+  res.send();
+}
+
+app.post('/signup', handleSignup);
+app.get('/test', handleTestGet);
 
 // Listen on port 8080 for incoming requests to the server.
 const server = app.listen(8080, function () {});
