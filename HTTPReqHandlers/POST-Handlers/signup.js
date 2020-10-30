@@ -1,14 +1,34 @@
+const mongoose = require('mongoose');
+const User = require('../../Utility/DB/Models/User');
+
+/**
+ * Add user to the database.
+ * @param {object} user  The user object containing user properties.
+ */
+async function addUserToDB(user) {
+  let userModel = new User(user);
+  await userModel.save();
+  return userModel;
+}
+
 /**
  * Signup to the platform using the given username and password.
- * @param {string} username  Desired username of the user.
- * @param {string} password  Desired password of the user.
+ * @param {string} auth_uuid  The client-side generated AWS Cognito authentication UUID of the user.
+ * @param {string} username  The specified username of the user.
+ * @param {string} name  The specified name of the user.
+ * @param {string} email  The specified email of the user.
  * @returns {promise}  A promise representing the eventual completion of the signupUser() function.
  */
-function signupUser(username, password) {
+function signupUser(data) {
   return new Promise(function (resolve, reject) {
-    resolve({
-      success: true,
-      message: `testing - signupUser() invoked - Username: ${username}, Password: ${password}`,
+    let user = {};
+    user.auth_uuid = data.auth_uuid;
+    user.username = data.username;
+    user.name = data.name;
+    user.email = data.email;
+
+    addUserToDB(user).then((userModel) => {
+      resolve(userModel);
     });
   });
 }
