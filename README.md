@@ -1,23 +1,41 @@
 # Favoura | IOU Tracker Server
-The back-end server for the Favoura IOU tracker web application. This application runs on Node.JS and makes use of __________ .
+## Table Of Contents
 
-For a video tutorial on how to setup and run this server, see this video: ________________ <br>
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Installation and Usage](#installation-and-usage)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+  * [Usage](#usage)
+* [Roadmap](#roadmap)
+* [License](#license)
+* [Acknowledgements](#acknowledgements)
+
+## About The Project
+
+![Screen Shot](images/screenshot.png)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Built With
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-<h2>Application contents:</h2>
+## Application Contents
 
-<h3>ReqHandlers Directory</h3>
+### ReqHandlers Directory
 <ul> 
   <li><b>GET-Handlers</b> - A folder containing the GET handlers used in the app.</li>
   <li><b>POST-Handlers</b> - A folder containing the POST handlers used in the app.</li>
 </ul>
 
-<h3>Utility Directory</h3>
+### Utility Directory
 <ul>
   <li><b>appUtil.js</b> - Provides functionality used throughout the code base, such as ________________</li>
 </ul>
   
-<h3>App Working Directory</h3>
+### App Working Directory
 <ul>
   <li><b>Node-Modules</b> - Generated when running 'npm install'. A folder containing the npm module dependencies used by the application.</li>
   <li><b>server.js</b> - The main server file that utilises Express to start a web server.</li>
@@ -25,9 +43,19 @@ For a video tutorial on how to setup and run this server, see this video: ______
   <li><b>package-lock.json</b> - Package-lock.json file used with NPM.</li>
 </ul>
 
-Installation and Usage
-----------------------
-<h3>Instructions:</h3>
+## Installation and Usage
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+
+* npm
+
+```sh
+npm install npm@latest -g
+```
+
+### Installation
 <ol>
   <li>Clone this repository.</li>
   <li>In the newly cloned repository, open your command line and run the 'npm install' command to download the required modules.</li>
@@ -36,24 +64,36 @@ Installation and Usage
   <li>To test out the authenticated routes, run the server alongside the Favoura front-end web application and then generate an access token by logging in.</li>
 </ol>
 
+### Usage
 
+Here the the HTTP REST routes you may use send to this server to interact with it.
 
-<h2>HTTP REST Routes (unauthenticated):</h2>
-
-    GET  /routeBeHere
-    
-    GET  /routeBeHere
-    
-    POST /routeBeHere
-
-<h2>HTTP REST Routes (authenticated):</h2>
+#### HTTP REST Routes (unauthenticated)
 
     GET  /routeBeHere
     
     GET  /routeBeHere
     
     POST /routeBeHere
+
+#### HTTP REST Routes (authenticated)
+
+    GET  /routeBeHere
+    
+    GET  /routeBeHere
+    
+    POST /routeBeHere
+    
+## Roadmap
+
+See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a list of proposed features (and known issues).
 
 ## License
 
 AIP-A2-IOU-Tracker-Server is copyright (c) 2020, Aryan Nateghnia <38933061+aryannateq@users.noreply.github.com>.
+
+## Acknowledgements
+
+* [Sukonrat Kanjanasuttiyakorn](https://github.com/sukonrat)
+* [Mohammad Karim](https://github.com/mohammad260)
+
