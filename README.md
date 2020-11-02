@@ -1,4 +1,4 @@
-# Favoura | IOU Tracker Server
+# Favoura | IOU Favour Tracker Server
 ## Table Of Contents
 
 * [About the Project](#about-the-project)
@@ -52,12 +52,12 @@ The following technologies were used to build this server:
 
 ### Prerequisites
 
-* npm
+* Node.JS
+* NPM
 
 ```sh
 npm install npm@latest -g
 ```
-
 
 ### Installation
 <ol>
@@ -70,7 +70,7 @@ npm install npm@latest -g
 
 ### Usage
 
-Here the the HTTP REST routes you may use send to this server to interact with it.
+Here are the HTTP REST routes you may use to interact with this server.
 
 #### HTTP REST Routes (authenticated)
 
