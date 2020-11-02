@@ -17,21 +17,25 @@ async function getRequestsFromDB(keywords) {
     return docs;
   } else {
     const docs = await Request.find().sort({ _id: -1 }).limit(10).exec();
-    //console.log('DOCS: ', docs.map((doc) => doc.requestStatus).sort());
     return docs;
   }
 }
 
 /**
- * Fetches the given request, based on keywords entered by the user.
+ * Fetches the given request, based on keywords supplied by the user.
  * @param {string} keywords  Keywords describing the request to search for.
  * @returns {promise}  A promise representing the eventual completion of the FetchRequests() function.
  */
 function fetchRequests(keywords) {
   return new Promise(function (resolve, reject) {
-    getRequestsFromDB(keywords).then((docs) => {
-      resolve(docs);
-    });
+    getRequestsFromDB(keywords)
+      .then((requestDocs) => {
+        const response = Object.assign({ success: true }, requestDocs);
+        resolve(response);
+      })
+      .catch((error) => {
+        reject({ success: false, message: error });
+      });
   });
 }
 

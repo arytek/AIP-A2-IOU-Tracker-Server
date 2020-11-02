@@ -3,24 +3,29 @@ const Request = require('../../Utility/DB/Models/Request');
 
 /**
  * Add request to the database.
- * @param {object} request  The request object containing request properties.
+ * @param {object} request  The request object containing valid request properties as defined in the Request Model.
  */
 async function addRequestToDB(request) {
   let requestModel = new Request(request);
-  await requestModel.save();
-  return requestModel;
+  let requestDoc = await requestModel.save();
+  return requestDoc;
 }
 
 /**
- * Handles creation of favour requests in the system.
+ * Creates a new request using the submitted request parameters.
  * @param {object} request  The request object containing request properties.
  * @returns {promise}  A promise representing the eventual completion of the createNewRequest() function.
  */
-function createNewRequest(request) {
+function createNewRequest(requestData) {
   return new Promise(function (resolve, reject) {
-    addRequestToDB(request).then((requestModel) => {
-      resolve(requestModel);
-    });
+    addRequestToDB(requestData)
+      .then((requestDoc) => {
+        const response = Object.assign({ success: true }, requestDoc);
+        resolve(response);
+      })
+      .catch((error) => {
+        reject({ success: false, message: error });
+      });
   });
 }
 

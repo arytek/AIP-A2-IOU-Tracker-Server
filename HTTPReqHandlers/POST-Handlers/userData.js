@@ -8,15 +8,15 @@ const User = require('../../Utility/DB/Models/User');
  */
 async function getUserDataFromDB(auth_uuid) {
   if (auth_uuid) {
-    const docs = await User.find({
+    const userDoc = await User.find({
       auth_uuid: new RegExp(escapeStringRegexp(auth_uuid), 'i'),
     })
       .sort({ _id: -1 })
       .limit(1)
       .exec();
-    return docs;
+    return userDoc;
   } else {
-    console.error('Parameter auth_uuid was not specified.');
+    throw Error('Parameter auth_uuid was not specified.');
   }
 }
 
@@ -27,10 +27,14 @@ async function getUserDataFromDB(auth_uuid) {
  */
 function fetchUserData(auth_uuid) {
   return new Promise(function (resolve, reject) {
-    getUserDataFromDB(auth_uuid).then((docs) => {
-      console.log(docs);
-      resolve(docs);
-    });
+    getUserDataFromDB(auth_uuid)
+      .then((userDoc) => {
+        const response = Object.assign({ success: true }, userDoc);
+        resolve(response);
+      })
+      .catch((error) => {
+        reject({ success: false, message: error });
+      });
   });
 }
 

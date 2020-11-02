@@ -14,7 +14,6 @@ const userData = require('../HTTPReqHandlers/POST-Handlers/userData');
  * @param {object} res  The results object provided by Express. See Express doc.
  */
 function handleNewRequest(req, res) {
-  console.log(res.locals.user);
   newRequest
     .createNewRequest(res.locals.user, req.body)
     .then(function (data) {
@@ -73,12 +72,6 @@ function handleUserData(req, res) {
  * @param {object} res  The results object provided by Express. See Express doc.
  */
 function handleSignup(req, res) {
-  console.log('/signup was triggered!');
-  //   const auth_uuid = req.query.auth_uuid;
-  //   const username = req.query.username;
-  //   const name = req.query.name;
-  //   const email = req.query.email;
-
   signup
     .signupUser(req.body)
     .then(function (data) {

@@ -2,28 +2,30 @@ const mongoose = require('mongoose');
 const UserStat = require('../../Utility/DB/Models/UserStat');
 
 /**
- * Add request to the database.
- * @param {object} request  The user object containing user properties.
+ * Gets the top 10 UserStat documents with the most 'requestsFulfilled'.
  */
-async function getUserStatsFromDB(request) {
-  // let userModel = new User(user);
-  // await userModel.save();
-  // return userModel;
+async function getMostFulfillingUsersFromDB() {
+  const docs = await UserStat.find()
+    .sort({ requestsFulfilled: -1 })
+    .limit(10)
+    .exec();
+  return docs;
 }
 
 /**
- *
- * @param {string} keywords  Keywords describing the request to search for.
- * @returns {promise}  A promise representing the eventual completion of the FetchRequests() function.
+ * Gets the UserStats of the top 10 users that have fulfilled the most requests.
+ * @returns {promise}  A promise representing the eventual completion of the mostFulfillingUsers() function.
  */
-function mostFulfillingUsers(keywords) {
+function mostFulfillingUsers() {
   return new Promise(function (resolve, reject) {
-    if (keywords) {
-    }
-
-    addUserToDB(user).then((userModel) => {
-      resolve(userModel);
-    });
+    getMostFulfillingUsersFromDB()
+      .then((userStatDocs) => {
+        const response = Object.assign({ success: true }, userStatDocs);
+        resolve(response);
+      })
+      .catch((error) => {
+        reject({ success: false, message: error });
+      });
   });
 }
 

@@ -7,8 +7,8 @@ const User = require('../../Utility/DB/Models/User');
  */
 async function addUserToDB(user) {
   let userModel = new User(user);
-  await userModel.save();
-  return userModel;
+  let userDoc = await userModel.save();
+  return userDoc;
 }
 
 /**
@@ -19,17 +19,22 @@ async function addUserToDB(user) {
  * @param {string} email  The specified email of the user.
  * @returns {promise}  A promise representing the eventual completion of the signupUser() function.
  */
-function signupUser(data) {
+function signupUser(userData) {
   return new Promise(function (resolve, reject) {
     let user = {};
-    user.auth_uuid = data.auth_uuid;
-    user.username = data.username;
-    user.name = data.name;
-    user.email = data.email;
+    user.auth_uuid = userData.auth_uuid;
+    user.username = userData.username;
+    user.name = userData.name;
+    user.email = userData.email;
 
-    addUserToDB(user).then((userModel) => {
-      resolve(userModel);
-    });
+    addUserToDB(user)
+      .then((userDoc) => {
+        const response = Object.assign({ success: true }, userDoc);
+        resolve(response);
+      })
+      .catch((error) => {
+        reject({ success: false, message: error });
+      });
   });
 }
 
