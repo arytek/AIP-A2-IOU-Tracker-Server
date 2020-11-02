@@ -52,19 +52,18 @@ The following technologies were used to build this server:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
 * npm
 
 ```sh
 npm install npm@latest -g
 ```
 
+
 ### Installation
 <ol>
   <li>Clone this repository.</li>
-  <li>In the newly cloned repository, open your command line and run the 'npm install' command to download the required modules.</li>
-  <li>Run the 'npm run server' command to run the server.</li>
+  <li>In the newly cloned repository, open your command line and run the 'npm install' command to download the required packages.</li>
+  <li>Run the <b>'npm run server'</b> command to run the server.</li>
   <li>The server is now ready. Try out the following unauthenticated REST requests below.</li>
   <li>To test out the authenticated routes, run the server alongside the Favoura front-end web application and then generate an access token by logging in.</li>
 </ol>
