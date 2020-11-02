@@ -15,30 +15,35 @@
 
 ![Screen Shot](images/screenshot.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Favoura is a tracking system for “IOU”s or “favours”. An “IOU” is an abbreviation of "I owe you", and it is an informal acknowledgement of a debt or favor owed. This system allows groups or teams to log in and record the favors that they owe to each other. In addition to recording favors, Favoura allows users to post public requests with an offer to provide a favor (the reward), as well as view a leaderboard to see who is fulfilling the most requests.
 
 ## Built With
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+The following technologies were used to build this server:
+* Node.JS.
+* Express.
+* MongoDB / Mongoose.
+* AWS Cognito.
 
 ## Application Contents
 
-### ReqHandlers Directory
+### HTTPReqHandlers Directory
 <ul> 
-  <li><b>GET-Handlers</b> - A folder containing the GET handlers used in the app.</li>
-  <li><b>POST-Handlers</b> - A folder containing the POST handlers used in the app.</li>
+  <li><b>GET-Handlers</b> - A directory containing the GET handlers used in this server.</li>
+  <li><b>POST-Handlers</b> - A directory containing the POST handlers used in this server.</li>
 </ul>
 
 ### Utility Directory
 <ul>
-  <li><b>appUtil.js</b> - Provides functionality used throughout the code base, such as ________________</li>
+  <li><b>RouteHandlers.js</b> - Contains functions for handling each and every individual route trigger. </li>
+  <li><b>DB\Connection.js</b> - Provides a connection to our MongoDB Atlas cloud database.</li>
+  <li><b>DB\Models</b> - A directory containing the Mongoose models used by the server when interacting with the MongoDB database.</li>
 </ul>
   
 ### App Working Directory
 <ul>
-  <li><b>Node-Modules</b> - Generated when running 'npm install'. A folder containing the npm module dependencies used by the application.</li>
-  <li><b>server.js</b> - The main server file that utilises Express to start a web server.</li>
+  <li><b>Node-Modules</b> - Generated when running 'npm install'. A directory containing the NPM package dependencies used by this server.</li>
+  <li><b>server.js</b> - The main server file that utilises Express to start the web server.</li>
   <li><b>package.json</b> - Package.json file used with NPM.</li>
   <li><b>package-lock.json</b> - Package-lock.json file used with NPM.</li>
 </ul>
@@ -68,25 +73,26 @@ npm install npm@latest -g
 
 Here the the HTTP REST routes you may use send to this server to interact with it.
 
-#### HTTP REST Routes (unauthenticated)
-
-    GET  /routeBeHere
-    
-    GET  /routeBeHere
-    
-    POST /routeBeHere
-
 #### HTTP REST Routes (authenticated)
 
-    GET  /routeBeHere
+    POST  /newRequest    (Use HTTP body to send the neccessary request data)
     
-    GET  /routeBeHere
+    POST  /newFavour    (Use HTTP body to send the neccessary favour data)
     
-    POST /routeBeHere
+    POST /userData
+    
+
+#### HTTP REST Routes (unauthenticated)
+
+    POST  /signup    (Use HTTP body to send the neccessary signup data)
+    
+    GET  /requests?keywords=keyword
+    
+    GET /leaderboard
     
 ## Roadmap
 
-See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/AryanNateq/AIP-A2-IOU-Tracker-Server/issues) for a list of proposed features (and known issues).
 
 ## License
 
