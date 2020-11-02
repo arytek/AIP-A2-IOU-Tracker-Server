@@ -67,7 +67,7 @@ function handleUserData(req, res) {
 
 /**
  * Handles '/signup' POST requests.
- * Returns
+ * Validates and sends the signup data to the database and thus registers the user.
  * @param {object} req  The requests object provided by Express. See Express doc.
  * @param {object} res  The results object provided by Express. See Express doc.
  */
